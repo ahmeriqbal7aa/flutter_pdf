@@ -27,3 +27,7 @@ Add below line of code into your app's ```<AndroidManifest.xml>``` file.
 ```
 This is required to access/read file(s) from External Storage.
 
+# Working
+
+<img src="https://user-images.githubusercontent.com/73339220/104578032-fff2cb00-567b-11eb-94af-56882c3491ea.gif" width=300 />
+
