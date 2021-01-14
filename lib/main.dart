@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pdf_flutter/pdf_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +27,11 @@ class _HomePageState extends State<HomePage> {
         title: Text('Flutter PDF'),
       ),
       body: Center(
-        child: Text('Working with PDF'),
+        child: PDF.network(
+          "http://www.africau.edu/images/default/sample.pdf",
+          height: 400,
+          width: 250,
+        ),
       ),
     );
   }
