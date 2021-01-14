@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:path_provider/path_provider.dart';
+import 'package:open_file/open_file.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,6 +25,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var displayFile;
   final doc = pw.Document();
   //TODO Create PDF document
   void generatePdf() async {
@@ -53,6 +55,22 @@ class _HomePageState extends State<HomePage> {
     // ======== print "pathToWrite" to view path where file is saved ====== //
     print(pathToWrite);
     print('Saved');
+
+    // =================================================================== //
+    if (pathToWrite == null) {
+      pathToWrite = null;
+      displayFile = pathToWrite;
+    } else {
+      displayFile = pathToWrite;
+    }
+  }
+
+  void openFile() {
+    if (displayFile == null) {
+      return null;
+    } else {
+      OpenFile.open(displayFile);
+    }
   }
 
   @override
@@ -66,9 +84,16 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //TODO Create/Generate PDF File
             RaisedButton(
               onPressed: generatePdf,
               child: Text('Generate PDF'),
+            ),
+            SizedBox(height: 100.0),
+            //TODO Display Create/Generate PDF File
+            RaisedButton(
+              onPressed: openFile,
+              child: Text('Display Generated File'),
             ),
           ],
         ),
@@ -92,9 +117,10 @@ height: 400,
 width: 250,
 ),*/
 ///////////////////////////////////////////////////////////////////
-//TODO Read from File(External Storage)
+//TODO Read from External Storage's File
 /*class _HomePageState extends State<HomePage> {
   File file;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
