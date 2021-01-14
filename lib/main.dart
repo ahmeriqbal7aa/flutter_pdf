@@ -27,8 +27,8 @@ class _HomePageState extends State<HomePage> {
         title: Text('Flutter PDF'),
       ),
       body: Center(
-        child: PDF.network(
-          "http://www.africau.edu/images/default/sample.pdf",
+        child: PDF.assets(
+          'assets/sample.pdf',
           height: 400,
           width: 250,
         ),
@@ -36,3 +36,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+//////////////////////////////////////////////////////////////////
+//TODO Read Online
+// child: PDF.network(
+//   "http://www.africau.edu/images/default/sample.pdf",
+//   height: 400,
+//   width: 250,
+// ),
